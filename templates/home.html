@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: url("{% static 'images/banner/m20.jpg' %}")no-repeat center center/cover;
+            color: rgb(243, 247, 12);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Section */
+        h1 {
+            font-size: 3.5em;
+            margin-top: 20px;
+            color: rgb(223, 226, 12);
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-top: 10px;
+            color: #e3fc05;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            color: #FFD700;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #111;
+            padding: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            font-size: 2em;
+            color: #FF6347;
+            font-weight: bold;
+        }
+
+        .navbar-brand:hover {
+            color: #FFBB00;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgb(123, 212, 7);
+            font-size: 1.1em;
+            text-transform: uppercase;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #FFBB00;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #FFBB00;
+        }
+
+        /* Button Styling */
+        .button {
+            display: inline-block;
+            margin: 20px;
+            padding: 18px 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #111;
+            background-color: #FFD700;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #FF6347;
+            color: rgb(236, 243, 227);
+            transform: translateY(-5px);
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Artist Section Styling */
+        .artist-section {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .artist-link {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: rgb(14, 13, 12);
+            background-color: #f7e70a;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .artist-link:hover {
+            background-color: #e0f00a;
+            transform: scale(1.1);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+            color: rgb(19, 19, 14);
+        }
+
+        
+        .artist-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .artist-links a i {
+            margin-right: 10px;
+        }
+
+        
+        footer {
+            margin-top: 60px;
+            padding: 20px;
+            background-color: #111;
+            color: #bbb;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: #FFBB00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">EMusic</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'helpcenter' %}">Help Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'subscribe' %}">Subscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'spotify' %}">Songs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <h1>Welcome to EMusic</h1>
+    <p>Discover and explore your favorite music directly on Spotify!</p>
+
+    
+    <a href="https://open.spotify.com/browse" target="_blank" class="button">Explore Categories</a>
+
+    
+    <div class="artist-section">
+        <h2>Popular Artists</h2>
+        <div class="artist-links">
+            <a href="https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V" target="_blank" class="artist-link">
+                <i class="bi bi-music-note-beamed"></i> Ed Sheeran
+            </a>
+            <a href="https://open.spotify.com/artist/1uNFoZAHBGtllmzznpCI3s" target="_blank" class="artist-link">
+                <i class="bi bi-music-note-beamed"></i> Justin Bieber
+            </a>
+            <a href="https://open.spotify.com/artist/66CXWjxzNUsdJxJ2JdwvnR" target="_blank" class="artist-link">
+                <i class="bi bi-music-note-beamed"></i> Ariana Grande
+            </a>
+            <a href="https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4" target="_blank" class="artist-link">
+                <i class="bi bi-music-note-beamed"></i> Drake
+            </a>
+            <a href="https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ" target="_blank" class="artist-link">
+                <i class="bi bi-music-note-beamed"></i> The Weeknd
+            </a>
+        </div>
+    </div>
+
+    
+    <footer>
+        <p> Made with ❤️ for music lovers | <a href="{% url 'helpcenter' %}">Contact Us</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Icons (for musical note icon) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</body>
+</html>
